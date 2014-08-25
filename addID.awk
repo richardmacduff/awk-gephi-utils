@@ -5,10 +5,10 @@
 # format for nodesWithId.csv: Id;Label 			# with first line a header
 
 
-#say hello, /dev/tty is where the command was sent from
+#say hello, /dev/tty is where the command was sent from, regardless of stdin and stdout redirection
 BEGIN { print "FILLING LOOKUP TABLE" > "/dev/tty" }
 
-#fill an in-memory lookup table (unnamed)
+#fill an in-memory lookup table named map
 FILENAME == "nodesWithId.csv" {
 	map[$2]=$1
 	next
